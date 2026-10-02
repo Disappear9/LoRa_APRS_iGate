@@ -23,17 +23,20 @@
     #define HAS_SX1268
     #define HAS_1W_LORA
     #define HAS_TCXO
-    #define RADIO_SCLK_PIN          18
-    #define RADIO_MISO_PIN          19
-    #define RADIO_MOSI_PIN          23
-    #define RADIO_CS_PIN            5
+    #define RADIO_SCLK_PIN          14
+    #define RADIO_MISO_PIN          12
+    #define RADIO_MOSI_PIN          13
+    #define RADIO_CS_PIN            15
     #define RADIO_RST_PIN           27
-    #define RADIO_DIO1_PIN          12
-    #define RADIO_BUSY_PIN          14
-    #define RADIO_RXEN              32
-    #define RADIO_TXEN              25
+    #define RADIO_DIO1_PIN          25
+    #define RADIO_BUSY_PIN          34
+    #define RADIO_RXEN              26
+    //#define RADIO_TXEN              25
+    //Uncomment and comment RADIO_TXEN if connect DIO2 to TXEN
+    #define SX126X_DIO2_AS_RF_SWITCH
+    #define SX126X_DIO3_TCXO_VOLTAGE 2.2
     #define RADIO_WAKEUP_PIN        RADIO_DIO1_PIN
-    #define GPIO_WAKEUP_PIN         GPIO_SEL_12
+    #define GPIO_WAKEUP_PIN         GPIO_SEL_34
 
     //  I2C
     #define USE_WIRE_WITH_OLED_PINS
@@ -50,6 +53,6 @@
     #define OLED_RST                -1      // Reset pin # (or -1 if sharing Arduino reset pin)
 
     //  Aditional Config
-    #define INTERNAL_LED_PIN        2
+    #define INTERNAL_LED_PIN        16
 
 #endif
