@@ -116,14 +116,14 @@ namespace LoRa_Utils {
             radio.setDio0Action(setFlag, RISING);
         #endif
 
-        /*#ifdef SX126X_DIO3_TCXO_VOLTAGE
+        #ifdef SX126X_DIO3_TCXO_VOLTAGE
             if (radio.setTCXO(float(SX126X_DIO3_TCXO_VOLTAGE)) == RADIOLIB_ERR_NONE) {
                 Utils::println("Set LoRa Module TCXO Voltage to:" + String(SX126X_DIO3_TCXO_VOLTAGE));
             } else {
                 Utils::println("Set LoRa Module TCXO Voltage failed! State: " + String(state));
                 while (true);
         }
-         #endif*/
+        #endif
 
         radio.setSpreadingFactor(Config.loramodule.rxSpreadingFactor);
         radio.setCodingRate(Config.loramodule.rxCodingRate4);
@@ -131,10 +131,10 @@ namespace LoRa_Utils {
         radio.setBandwidth(signalBandwidth);
         radio.setCRC(true);
 
-        /*#ifdef SX126X_DIO2_AS_RF_SWITCH
+        #ifdef SX126X_DIO2_AS_RF_SWITCH
         radio.setRfSwitchPins(RADIO_RXEN, RADIOLIB_NC);
         radio.setDio2AsRfSwitch(true);
-        #endif*/
+        #endif
 
         #ifdef HAS_1W_LORA  // Ebyte E22 400M30S (SX1268) / 900M30S (SX1262) / Ebyte E220 400M30S (LLCC68)
             state = radio.setOutputPower(Config.loramodule.power); // max value 20dB for 1W modules as they have Low Noise Amp
